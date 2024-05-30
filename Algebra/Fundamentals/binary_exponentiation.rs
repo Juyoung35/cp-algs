@@ -50,11 +50,14 @@ fn sol_1(mut a: usize, mut b: usize, m: usize) -> usize {
 // (1 1)   = (F_n     F_(n-1))
 fn sol_2(n:usize) -> usize {
     struct Matrix<T, const N: usize, const M: usize>([[T; M]; N])
-    impl Mul for Matrix<T, const N: usize, const M: usize> {
+    impl<T, const N: usize, const M: usize> Mul for Matrix<T, N, M> {
         fn mul(self, rhs: Self) -> Self::Output {
-            for i in 0..self.0.len() {
-                for j in 0..rhs.0[0].len() {
-                    
+            let n = self.0.len();
+            let m = rhs.0[0].len();
+            let mut mat = Self([T::default(); ])
+            for i in 0..n {
+                for j in 0..m {
+
                 }
             }
         }
